@@ -22,7 +22,7 @@ class UserProfileManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email address.')
 
-        email = self.normailize_email(email)
+        email = self.normalize_email(email)
         user = self.model(email=email, name=name)
 
         user.set_password(password)
@@ -70,4 +70,4 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Django uses this when it needs to convert the object to a string."""
 
-        return self.EmailField
+        return self.email
